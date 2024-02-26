@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+
+	"github.com/joho/godotenv"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	err := godotenv.Load(".env.local")
+	if err != nil {
+		fmt.Println("Error loading .env file")
+		return
+	}
+	fmt.Println(os.Getenv("POSTGRES_USER"))
 }

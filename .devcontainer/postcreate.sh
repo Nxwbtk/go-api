@@ -5,5 +5,5 @@ POST='/.env.local | xargs)'
 CMD=$PRE$1$POST
 echo $CMD >> ~/.bashrc
 
-apt update && apt install -y postgresql-client
+apt-get update && apt-get install -y --no-install-recommends postgresql-client
 cd app && go mod download
